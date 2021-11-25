@@ -2,7 +2,7 @@ FROM alpine AS build-env
 
 
 WORKDIR /go
-COPY ./ /go/
+COPY ./forwardsms/ /go/
 RUN apk add go
 RUN go build
 
