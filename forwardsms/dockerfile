@@ -3,7 +3,7 @@ FROM alpine AS build-env
 
 WORKDIR /go
 COPY ./forwardsms/ /go/
-RUN apk add go
+RUN apk add go gcc
 RUN CGO_ENABLED=1 go build -a -tags netgo -ldflags "-s -w"
 
 FROM alpine
