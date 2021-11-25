@@ -1,0 +1,13 @@
+FROM alpine AS build-env
+
+
+WORKDIR /go
+COPY ./ /go/
+RUN apk add go
+RUN go env -w GO111MODULE=on
+RUN go env -w GOPROXY=https://goproxy.cn,direct
+RUN CGO_ENABLED=1 go build -a -tags netgo -ldflags "-s -w"
+
+FROM alpine
+COPY  --from=build-env /go/forwardsms /forwardsms
+CMD [ "/forwardsms" ]

@@ -1,0 +1,3 @@
+FROM alpine
+RUN apk add gammu-smsd libdbi-drivers gammu
+CMD [ "/usr/bin/gammu-smsd","-c" ,"/data/config/gammu-smsd.conf"]

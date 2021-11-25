@@ -1,0 +1,11 @@
+# 如果有all这个配置，就是默认所有短信都会转发给这个机器人，建议发送给管理员，或者直接删除关闭
+all:
+  rule: all
+  type: all
+  url: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxxxx
+
+# 从上到下依次为 项目名称、规则（使用关键字匹配）、匹配方式（后续可能支持正则）、机器人url
+测试:
+  rule: 测试
+  type: keyword
+  url: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxxxx
