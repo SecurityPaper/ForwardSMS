@@ -5,6 +5,7 @@ services:
     image:  securitypaperorg/forwardsms:latest
     volumes:
       - ./data:/data
+    restart: always
 
   gammu-smsd:
     image: securitypaperorg/gammu-smsd:latest
@@ -12,3 +13,4 @@ services:
       - ./data:/data
       - /dev/ttyUSB3:/dev/ttyUSB3
     privileged: true
+    restart: always
