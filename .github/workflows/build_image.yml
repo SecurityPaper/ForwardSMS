@@ -35,7 +35,7 @@ jobs:
           push: true
           file: forwardsms/dockerfile
           tags: |
-            ghcr.io/securitypaper/forwardsms:latest
+            ghcr.io/SecurityPaper/forwardsms:latest
 
       -
         name: 编译gammu-smsd镜像
@@ -46,4 +46,4 @@ jobs:
           push: true
           file: gammu-smsd/dockerfile
           tags: |
-            ghcr.io/securitypaper/gammu-smsd:latest
+            ghcr.io/SecurityPaper/gammu-smsd:latest
