@@ -4,7 +4,7 @@ FROM alpine AS build-env
 WORKDIR /go
 COPY ./forwardsms/ /go/
 RUN apk add go
-RUN go build
+RUN CGO_ENABLED=1 go build -a -tags netgo -ldflags "-s -w"
 
 FROM alpine
 COPY  --from=build-env /go/forwardsms /forwardsms
