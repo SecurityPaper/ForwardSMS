@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  forwardsms:
+    image:  ghcr.io/securitypaper/forwardsms:latest
+    volumes:
+      - ./data:/data
+
+  gammu-smsd:
+    image: ghcr.io/securitypaper/gammu-smsd:latest
+    volumes:
+      - ./data:/data
+      - /dev/ttyUSB3:/dev/ttyUSB3
+    privileged: true
