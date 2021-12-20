@@ -1,3 +1,7 @@
 FROM alpine
-RUN apk add gammu-smsd libdbi-drivers gammu
+ENV TZ Asia/Shanghai
+RUN apk add gammu-smsd libdbi-drivers gammu tzdata && cp /usr/share/zoneinfo/${TZ} /etc/localtime \
+    && echo ${TZ} > /etc/timezone \
+    && apk del tzdata
+
 CMD [ "/usr/bin/gammu-smsd","-c" ,"/data/config/gammu-smsd.conf"]
