@@ -7,5 +7,6 @@ RUN apk add go build-base
 RUN CGO_ENABLED=1 go build -a -tags netgo -ldflags "-s -w"
 
 FROM alpine
+RUN echo "*/1 * * * * /forwardsms >> /data/log/forwardsms.log" >> /etc/crontabs/root
 COPY  --from=build-env /go/forwardsms /forwardsms
-CMD [ "/forwardsms" ]
+ENTRYPOINT ["/usr/sbin/crond", "-f"]
